@@ -180,21 +180,21 @@ public class UIScript : MonoBehaviour
             case "tree":
                 if (PlayerPrefs.GetInt("WoodAmount") >= upgrade.treeReq)
                 {
-                    inv.RemoveItem("WoodAmount", upgrade.treeReq);
+                    inv.RemoveMaterial("WoodAmount", upgrade.treeReq);
                     Upgrade();
                 }
                 break;
             case "stone":
                 if (PlayerPrefs.GetInt("StoneAmount") >= upgrade.stoneReq)
                 {
-                    inv.RemoveItem("StoneAmount", upgrade.stoneReq);
+                    inv.RemoveMaterial("StoneAmount", upgrade.stoneReq);
                     Upgrade();
                 }
                 break;
             case "furnace":
                 if (PlayerPrefs.GetInt("IronAmount") >= upgrade.ironReq)
                 {
-                    inv.RemoveItem("IronAmount", upgrade.ironReq);
+                    inv.RemoveMaterial("IronAmount", upgrade.ironReq);
                     Upgrade();
                 }
                 break;
@@ -220,7 +220,7 @@ public class UIScript : MonoBehaviour
     }
     public void OpenInventory()
     {
-        inventory.SetActive(true);
+        inventory.GetComponent<Canvas>().enabled = true;
     }
     public void Pause()
     {

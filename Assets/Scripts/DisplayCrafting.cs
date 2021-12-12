@@ -69,7 +69,7 @@ public class DisplayCrafting : MonoBehaviour
                 print("Craft Coal");
                 if (inv.wood >= 5)
                 {
-                    //inv.RemoveItem("WoodAmount", 5);
+                    //inv.RemoveMaterial("WoodAmount", 5);
                     inv.AddItem(Item.ItemType.Coal, 1);
                     //inv.Add("CoalAmount", 1);
                 }           

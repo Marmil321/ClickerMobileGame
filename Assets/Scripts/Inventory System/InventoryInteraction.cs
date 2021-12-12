@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class InventoryInteraction : MonoBehaviour
 {
-    private int selected = 0;
+    private int select;
 
     public void Button()
     {
-       selected = GetItemID(GetComponent<Image>().sprite);
+        select = GetItemID(GetComponent<Image>().sprite);
+        FindObjectOfType<InventoryManager>().SELECTED_ID = select;
 
         foreach (GameObject frame in GameObject.FindGameObjectsWithTag("Frame"))
         {
@@ -29,7 +30,6 @@ public class InventoryInteraction : MonoBehaviour
     }
     private void OnDisable()
     {
-        //transform.GetChild(0).gameObject.SetActive(false);
-        selected = 0;
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }

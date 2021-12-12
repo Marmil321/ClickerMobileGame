@@ -9,10 +9,9 @@ public class Item
         StoneAxe,
         Food,
         Coal,
-        PickAxe,
+        Pickaxe,
         test,
         xd,
-
     }
 
     public ItemType itemType;

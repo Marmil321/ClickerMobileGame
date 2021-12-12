@@ -31,8 +31,8 @@ public class WorldSpaceCameraScript : MonoBehaviour
     {
         if (wood >= inv.coal && inv.iron >= 1)
         {
-            inv.RemoveItem("CoalAmount", 1);
-            inv.RemoveItem("IronAmount", 1);
+            inv.RemoveMaterial("CoalAmount", 1);
+            inv.RemoveMaterial("IronAmount", 1);
 
             smeltIronButton.gameObject.SetActive(false);
             StartCoroutine(StartSmelt("IronAmount",inv.iron,15));

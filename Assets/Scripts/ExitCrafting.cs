@@ -6,6 +6,6 @@ public class ExitCrafting : MonoBehaviour
 {
     public void Exit()
     {
-        this.gameObject.SetActive(false);
+        this.GetComponent<Canvas>().enabled = false;
     }
 }

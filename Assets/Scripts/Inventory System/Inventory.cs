@@ -14,8 +14,11 @@ public class Inventory
         itemList = new List<Item>();
 
         AddItem(new Item { itemType = Item.ItemType.StoneAxe, amount = 1 });
-        /*AddItem(new Item { itemType = Item.ItemType.Food, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Coal, amount = 1 });
+
+        itemList.Remove(new Item() { itemType = Item.ItemType.StoneAxe, amount = 1});
+
+        /*AddItem(new Item { itemType = Item.ItemType.Coal, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.xd, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.PickAxe, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.StoneAxe, amount = 1 });*/
@@ -42,6 +45,12 @@ public class Inventory
         {
             itemList.Add(item);
         }
+
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+    public void RemoveItem(Item item)
+    {
+        itemList.Remove(item);
 
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }

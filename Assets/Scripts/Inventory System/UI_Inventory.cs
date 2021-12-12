@@ -10,11 +10,12 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField]private Transform itemSlotContainer;
     [SerializeField]private Transform itemSlotTemplate;
 
-    public int number;
+    public List<Item> plis = new List<Item>();
 
     private void Start()
     {
         RefreshInventoryItems();
+
     }
     private void Awake()
     {
@@ -23,7 +24,11 @@ public class UI_Inventory : MonoBehaviour
     }
     private void Update()
     {
-        number = GameObject.FindGameObjectsWithTag("Template").Length;
+        /*if (GameObject.Find("selection"))
+        {
+            GameObject selected = GameObject.Find("selection");
+            selected.transform.parent.transform.parent.name = "SELECTED";
+        }*/
     }
     public void SetInventory(Inventory inventory)
     {
@@ -37,23 +42,24 @@ public class UI_Inventory : MonoBehaviour
     }
     public void RefreshInventoryItems()
     {
-        foreach(Transform child in itemSlotContainer)
+        foreach (Transform child in itemSlotContainer)
         {
             if (child == itemSlotTemplate) continue;
-            Destroy(child.gameObject);
+            Destroy(child.gameObject);   
         }
 
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 140f;
 
-        foreach(Item item in inventory.GetItemList())
+        FindObjectOfType<InventoryManager>().SELECTED_ID = 0;
+
+        foreach (Item item in inventory.GetItemList())
         {
             RectTransform itemSlotRect = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRect.gameObject.SetActive(true);
             itemSlotRect.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            itemSlotRect.name += number.ToString();
-
+          
             Image image = itemSlotRect.Find("Icon").GetComponent<Image>();
             image.sprite = item.GetSprite();
 
