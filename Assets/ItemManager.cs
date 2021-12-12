@@ -6,6 +6,9 @@ public class ItemManager : MonoBehaviour
 {
     public InventoryManager inventoryManager;
 
+    [SerializeField] private bool usingAxe;
+    public GameObject axeIcon;
+
     private void Start()
     {
         inventoryManager = GetComponent<InventoryManager>();
@@ -29,9 +32,9 @@ public class ItemManager : MonoBehaviour
     //Use items
     void UseAxe()
     {
-        print("USEAXE");
-        //print(inventory.GetItemList().Count);
         inventoryManager.RemoveItem(Item.ItemType.StoneAxe);
+        usingAxe = true;
+        axeIcon.SetActive(true);
     }
 }
 
