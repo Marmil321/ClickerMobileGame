@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Click : MonoBehaviour
 {
     public Animator anim;
-    bool click;
+    public bool click;
     public Text textAmount;
     private int amount;
     public string material;
@@ -28,7 +28,7 @@ public class Click : MonoBehaviour
     }
     void Update()
     {
-        if (GameObject.Find("CraftingCanvas"))
+        if (GameObject.Find("CraftingCanvas").GetComponent<Canvas>().enabled)
         {
             this.GetComponent<Collider2D>().enabled = false;
         }else
@@ -46,6 +46,10 @@ public class Click : MonoBehaviour
             PlayerPrefs.SetInt(material, amount);
             anim.Play("ClickAnim");
             leaves.Play();
+            if (this.gameObject.name == "Tree")
+            {
+                GameObject.Find("AxeIcon").GetComponent<AxeScript>().AxeClick();
+            }
             click = false;
         }
     }

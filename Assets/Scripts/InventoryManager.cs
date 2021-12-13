@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public int wood;
-    public int stone;
-    public int iron;
-    public int coal;
+    public int wood, stone, iron, coal, stick;
 
     public int SELECTED_ID;
 
@@ -26,6 +23,7 @@ public class InventoryManager : MonoBehaviour
         stone = PlayerPrefs.GetInt("StoneAmount");
         iron = PlayerPrefs.GetInt("IronAmount");
         coal = PlayerPrefs.GetInt("CoalAmount");
+        stick = PlayerPrefs.GetInt("StickAmount");
     }
     public void AddItem(Item.ItemType item, int addAmount)
     {

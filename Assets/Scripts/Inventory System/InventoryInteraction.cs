@@ -23,7 +23,7 @@ public class InventoryInteraction : MonoBehaviour
         switch (sprite.name)
         {
             default:         return 0;
-            case "stoneAxe": return 1;
+            case "ironAxe":  return 1;
             case "coal":     return 2;
             case "none":     return 3;
         }

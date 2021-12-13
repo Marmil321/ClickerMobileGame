@@ -32,7 +32,7 @@ public class ItemManager : MonoBehaviour
     //Use items
     void UseAxe()
     {
-        inventoryManager.RemoveItem(Item.ItemType.StoneAxe);
+        inventoryManager.RemoveItem(Item.ItemType.IronAxe);
         usingAxe = true;
         axeIcon.SetActive(true);
     }

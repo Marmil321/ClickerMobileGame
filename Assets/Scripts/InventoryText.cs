@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryText : MonoBehaviour
 {
-    public Text woodText, stoneText, ironText;
+    public Text woodText, stoneText, ironText, coalText, stickText;
     public InventoryManager inv;
     public int testint;
 
@@ -19,6 +19,8 @@ public class InventoryText : MonoBehaviour
         woodText.text = ShortenNumber(inv.wood);
         stoneText.text = ShortenNumber(inv.stone);
         ironText.text = ShortenNumber(inv.iron);
+        coalText.text = ShortenNumber(inv.coal);
+        stickText.text = ShortenNumber(inv.stick);
 
     }
     public string ShortenNumber(double value)

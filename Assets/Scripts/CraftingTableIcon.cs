@@ -22,6 +22,6 @@ public class CraftingTableIcon : MonoBehaviour
     public void OpenCraft()
     {
         //anim.Play("CraftingTableClick");
-        craftingCanvas.gameObject.SetActive(true);
+        craftingCanvas.GetComponent<Canvas>().enabled = true;
     }
 }

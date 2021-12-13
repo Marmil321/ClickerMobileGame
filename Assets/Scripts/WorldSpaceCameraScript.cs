@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class WorldSpaceCameraScript : MonoBehaviour
 {
     public Button smeltIronButton;
-    public GameObject furnace;
+    public Image axeIcon;
+    public GameObject furnace, tree;
     public GameObject cooldownBar;
 
     public Vector3[] offsets;
@@ -25,6 +26,7 @@ public class WorldSpaceCameraScript : MonoBehaviour
 
         inv = FindObjectOfType<InventoryManager>();
         smeltIronButton.gameObject.transform.position = furnace.transform.position + offsets[0];
+        axeIcon.gameObject.transform.position = tree.transform.position + offsets[2];
     }
 
     public void SmeltIron()
