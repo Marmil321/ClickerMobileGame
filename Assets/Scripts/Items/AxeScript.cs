@@ -10,8 +10,11 @@ public class AxeScript : MonoBehaviour
     int maxDurability = 100;
     public TextMeshProUGUI text;
 
+    ItemManager itemManager;
+
     private void Awake()
     {
+        itemManager = FindObjectOfType<ItemManager>();
         click = GameObject.Find("Tree").GetComponent<Click>();
         text = GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -19,6 +22,12 @@ public class AxeScript : MonoBehaviour
     private void Update()
     {
         text.text = durability.ToString() + "/" + maxDurability.ToString();
+        if (durability <= 0)
+        {
+            this.gameObject.SetActive(false);
+            durability = maxDurability;
+            itemManager.usingAxe = false;
+        }
     }
     public void AxeClick()
     {

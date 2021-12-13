@@ -6,7 +6,7 @@ public class ItemManager : MonoBehaviour
 {
     public InventoryManager inventoryManager;
 
-    [SerializeField] private bool usingAxe;
+    public bool usingAxe;
     public GameObject axeIcon;
 
     private void Start()

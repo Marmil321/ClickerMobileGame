@@ -51,7 +51,6 @@ public class UIScript : MonoBehaviour
     private void Update()
     {
         
-
         if (i > 0)
         {
             nextButton.gameObject.SetActive(false);

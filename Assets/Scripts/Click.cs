@@ -43,12 +43,19 @@ public class Click : MonoBehaviour
         if (click)
         {
             amount += upgrade.GetLevel();
-            PlayerPrefs.SetInt(material, amount);
-            anim.Play("ClickAnim");
+            PlayerPrefs.SetInt(material, amount);        
             leaves.Play();
-            if (this.gameObject.name == "Tree")
+            if(this.gameObject.name == "Stone")
             {
-                GameObject.Find("AxeIcon").GetComponent<AxeScript>().AxeClick();
+                anim.Play("ClickAnim");
+            }
+            if (this.gameObject.name == "Tree")
+            {           
+                anim.Play("TreeClick");
+                if (GameObject.Find("AxeIcon"))
+                {
+                    GameObject.Find("AxeIcon").GetComponent<AxeScript>().AxeClick();
+                }
             }
             click = false;
         }

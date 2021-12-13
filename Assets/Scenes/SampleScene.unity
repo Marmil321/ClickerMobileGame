@@ -3929,7 +3929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &475483651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8036,6 +8036,7 @@ GameObject:
   - component: {fileID: 997476664}
   - component: {fileID: 997476665}
   - component: {fileID: 997476666}
+  - component: {fileID: 997476667}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8125,6 +8126,21 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   usingAxe: 0
   axeIcon: {fileID: 22714747}
+--- !u!114 &997476667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997476661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0997eac95958244facf81a0735a7a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiController: {fileID: 0}
+  detectSwipeAfterRelease: 0
+  SWIPE_THRESHOLD: 200
 --- !u!1 &1005360984
 GameObject:
   m_ObjectHideFlags: 0
