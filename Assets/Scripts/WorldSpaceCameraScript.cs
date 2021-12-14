@@ -9,6 +9,8 @@ public class WorldSpaceCameraScript : MonoBehaviour
     public Image axeIcon;
     public GameObject furnace, tree;
     public GameObject cooldownBar;
+    [SerializeField]private GameObject row;
+    private int stage;
 
     public Vector3[] offsets;
 
@@ -26,7 +28,24 @@ public class WorldSpaceCameraScript : MonoBehaviour
 
         inv = FindObjectOfType<InventoryManager>();
         smeltIronButton.gameObject.transform.position = furnace.transform.position + offsets[0];
+        //row.transform.position = smeltIronButton.gameObject.transform.position;
         axeIcon.gameObject.transform.position = tree.transform.position + offsets[2];
+
+        switch (stage)
+        {
+            case 0:
+                if (row.transform.position != offsets[3])
+                {
+                    row.transform.position = Vector3.MoveTowards(row.transform.position, offsets[3], 5f * Time.deltaTime);
+                }
+                break;
+            case 1:
+                if (row.transform.position != offsets[4])
+                {
+                    row.transform.position = Vector3.MoveTowards(row.transform.position, offsets[4], 5f * Time.deltaTime);
+                }
+                break;
+        }
     }
 
     public void SmeltIron()
@@ -48,5 +67,19 @@ public class WorldSpaceCameraScript : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         PlayerPrefs.SetInt(output, i + Random.Range(2,5));
         smeltIronButton.gameObject.SetActive(true);
+    }
+    public void Next()
+    {
+        if(stage < 1)
+        {
+            stage++;
+        }
+    }
+    public void Prev()
+    {
+        if (stage > 0)
+        {
+            stage--;
+        }
     }
 }

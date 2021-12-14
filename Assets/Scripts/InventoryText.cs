@@ -2,20 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryText : MonoBehaviour
 {
     public Text woodText, stoneText, ironText, coalText, stickText;
-    public InventoryManager inv;
     public int testint;
+    public TextMeshProUGUI currentAmount;
+
+    public InventoryManager inv;
+    public UIScript ui;
 
     private void Start()
     {
         inv = FindObjectOfType<InventoryManager>();
+        ui = FindObjectOfType<UIScript>();
     }
 
     private void Update()
     {
+        switch (ui.i)
+        {
+            case 0:
+                switch (ui.page)
+                {
+                    case 0:
+                        currentAmount.text = ShortenNumber(inv.wood);
+                        break;
+                    case 1:
+                        currentAmount.text = ShortenNumber(inv.stone);
+                        break;
+                }
+                break;
+            case 1:
+                currentAmount.text = ShortenNumber(inv.iron);
+                break;
+        }
+        
+
         woodText.text = ShortenNumber(inv.wood);
         stoneText.text = ShortenNumber(inv.stone);
         ironText.text = ShortenNumber(inv.iron);

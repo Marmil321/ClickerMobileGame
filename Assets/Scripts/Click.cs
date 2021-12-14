@@ -13,9 +13,11 @@ public class Click : MonoBehaviour
     public ParticleSystem leaves;
 
     public UpgradeManger upgrade;
+    public UIScript ui;
     
     void Awake()
     {
+        ui = FindObjectOfType<UIScript>();
         leaves = GetComponentInChildren<ParticleSystem>();
         material += "Amount";
         anim = GetComponent<Animator>();
@@ -45,16 +47,17 @@ public class Click : MonoBehaviour
             amount += upgrade.GetLevel();
             PlayerPrefs.SetInt(material, amount);        
             leaves.Play();
-            if(this.gameObject.name == "Stone")
+            if(this.gameObject.name == "Stone" && ui.page == 1)
             {
                 anim.Play("ClickAnim");
             }
-            if (this.gameObject.name == "Tree")
+            if (this.gameObject.name == "Tree" && ui.page == 0)
             {           
                 anim.Play("TreeClick");
                 if (GameObject.Find("AxeIcon"))
                 {
                     GameObject.Find("AxeIcon").GetComponent<AxeScript>().AxeClick();
+                    amount += upgrade.GetLevel();
                 }
             }
             click = false;

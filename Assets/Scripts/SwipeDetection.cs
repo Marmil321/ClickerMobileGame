@@ -106,7 +106,7 @@ public class SwipeDetection : MonoBehaviour
 
 	void OnSwipeLeft()
 	{
-        if (uiController.page == 0)
+        if (uiController.page == 0 && uiController.i != 1)
         {
 			uiController.GoToStone();
 			this.enabled = false;
@@ -116,7 +116,7 @@ public class SwipeDetection : MonoBehaviour
 
 	void OnSwipeRight()
 	{
-		if (uiController.page != 0)
+		if (uiController.page != 0 && uiController.i != 1)
 		{
 			uiController.GoToStone();
 			this.enabled = false;
