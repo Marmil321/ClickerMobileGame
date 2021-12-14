@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
 
     public int SELECTED_ID;
 
-    private Inventory inventory;
+    public Inventory inventory;
     [SerializeField] private UI_Inventory uiInventory;
 
     private void Awake()

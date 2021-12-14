@@ -10,12 +10,9 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField]private Transform itemSlotContainer;
     [SerializeField]private Transform itemSlotTemplate;
 
-    public List<Item> plis = new List<Item>();
-
     private void Start()
     {
         RefreshInventoryItems();
-
     }
     private void Awake()
     {
