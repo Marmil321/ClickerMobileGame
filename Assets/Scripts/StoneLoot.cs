@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class StoneLoot : MonoBehaviour
 {
     public int amount;
-    public Text ironAmountText;
 
     private void Start()
     {
@@ -14,18 +13,16 @@ public class StoneLoot : MonoBehaviour
     }
     private void Update()
     {
-        amount = PlayerPrefs.GetInt("IronAmount");
-
-        ironAmountText.text = amount.ToString();
+        amount = PlayerPrefs.GetInt("IronOreAmount");
     }
     private void OnMouseDown()
     {
-        int getIron = Random.Range(0,26);
+        int getIronOre = Random.Range(0,26);
 
-        if (getIron == 25)
+        if (getIronOre == 25)
         {
             amount++;
-            PlayerPrefs.SetInt("IronAmount", amount);
+            PlayerPrefs.SetInt("IronOreAmount", amount);
         }
     }
 }

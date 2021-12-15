@@ -8,6 +8,15 @@ public class CooldownBar : MonoBehaviour
     public float time;
     float prosent = 1;
 
+    private void Awake()
+    {
+        StartCoroutine(Prepare());
+    }
+    IEnumerator Prepare()
+    {
+        yield return new WaitForSeconds(.1f);
+        GetComponentInChildren<CooldownBar>().GetComponent<SpriteRenderer>().enabled = true;
+    }
     private void Update()
     {
         transform.localScale = new Vector2(transform.localScale.x, maxValue);

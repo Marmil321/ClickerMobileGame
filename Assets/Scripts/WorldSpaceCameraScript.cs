@@ -17,14 +17,10 @@ public class WorldSpaceCameraScript : MonoBehaviour
     public InventoryManager inv;
     //Materials
     int wood;
-    int stone;
-    int iron;
 
     private void Update()
     {
         wood = PlayerPrefs.GetInt("WoodAmount");
-        stone = PlayerPrefs.GetInt("StoneAmount");
-        iron = PlayerPrefs.GetInt("IronAmount");
 
         inv = FindObjectOfType<InventoryManager>();
         smeltIronButton.gameObject.transform.position = furnace.transform.position + offsets[0];
@@ -50,13 +46,12 @@ public class WorldSpaceCameraScript : MonoBehaviour
 
     public void SmeltIron()
     {
-        if (wood >= inv.coal && inv.iron >= 1)
+        if (wood >= inv.coal && inv.ironOre >= 1)
         {
             inv.RemoveMaterial("CoalAmount", 1);
-            inv.RemoveMaterial("IronAmount", 1);
 
             smeltIronButton.gameObject.SetActive(false);
-            StartCoroutine(StartSmelt("IronAmount",inv.iron,15));
+            StartCoroutine(StartSmelt("IronAmount",inv.iron,5));
         }
     }
     IEnumerator StartSmelt(string output, int i, float cooldown)
@@ -64,8 +59,10 @@ public class WorldSpaceCameraScript : MonoBehaviour
         GameObject bar = Instantiate(cooldownBar, furnace.transform.position + offsets[1], Quaternion.Euler(new Vector3(0,0,-90)));
         bar.GetComponentInChildren<CooldownBar>().time = cooldown;
         bar.transform.SetParent(furnace.transform);
+
         yield return new WaitForSeconds(cooldown);
-        PlayerPrefs.SetInt(output, i + Random.Range(2,5));
+        inv.RemoveMaterial("IronOreAmount", 1);
+        PlayerPrefs.SetInt(output, i + 1);
         smeltIronButton.gameObject.SetActive(true);
     }
     public void Next()

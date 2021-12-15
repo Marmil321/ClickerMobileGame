@@ -35,7 +35,7 @@ public class InventoryText : MonoBehaviour
                 }
                 break;
             case 1:
-                currentAmount.text = ShortenNumber(inv.iron);
+                currentAmount.text = ShortenNumber(inv.ironOre);
                 break;
         }
         
