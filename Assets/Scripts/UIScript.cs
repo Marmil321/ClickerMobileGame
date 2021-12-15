@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIScript : MonoBehaviour
 {
     public GameObject tree, stone, furnace;
+    public GameObject[] uiIcons, uiScreens;
 
     public Button nextButton;
     public Dropdown changeBG;
@@ -220,6 +221,8 @@ public class UIScript : MonoBehaviour
     public void OpenInventory()
     {
         inventory.GetComponent<Canvas>().enabled = true;
+        uiScreens[0].GetComponent<Animator>().Play("InventoryDown");
+        uiIcons[0].GetComponent<Animator>().Play("BackpackClick");
     }
     public void Pause()
     {
