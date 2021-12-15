@@ -33,6 +33,7 @@ public class ItemManager : MonoBehaviour
     void UseAxe()
     {
         inventoryManager.RemoveItem(Item.ItemType.IronAxe);
+        inventoryManager.save.SaveInv();
         usingAxe = true;
         axeIcon.SetActive(true);
     }

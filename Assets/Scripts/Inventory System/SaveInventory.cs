@@ -7,18 +7,14 @@ public class SaveInventory : MonoBehaviour
     private Inventory inventory;
     public InventoryManager manager;
 
-    public List<string> saveList = new List<string>();
+    [SerializeField] List<string> saveList = new List<string>();
     public int amount;
     private void Start()
     {
         manager = FindObjectOfType<InventoryManager>();
         inventory = FindObjectOfType<InventoryManager>().inventory;
         LoadInv();
-         
-        for (int i = 0; i < PlayerPrefs.GetInt("saveItemCount"); i++)
-        {
-            //print(i);
-        }
+    
     }
     private void Update()
     {
@@ -34,6 +30,8 @@ public class SaveInventory : MonoBehaviour
     public void SaveInv()
     {
         saveList.Clear();
+        amount = 0;
+
         for (int i = 0; i < PlayerPrefs.GetInt("saveItemCount"); i++)
         {
             PlayerPrefs.DeleteKey("itemString" + i);
@@ -46,7 +44,6 @@ public class SaveInventory : MonoBehaviour
 
             string itemString = item.itemType.ToString();
             PlayerPrefs.SetString("itemString" + amount, itemString);
-            print(PlayerPrefs.GetString("itemString" + amount));
             saveList.Add(PlayerPrefs.GetString("itemString" + amount));         
         }
     }
@@ -60,7 +57,7 @@ public class SaveInventory : MonoBehaviour
            // print(PlayerPrefs.GetString("itemString" + (i + 1)));
         }
 
-        amount = 0;
+        //amount = 0;
 
         foreach (string item in saveList)
         {

@@ -85,6 +85,7 @@ public class DisplayCrafting : MonoBehaviour
                 break;
             case 2: 
                 inv.AddItem(Item.ItemType.IronAxe, 1);
+                inv.save.SaveInv();
                 break;
 
             case 3:

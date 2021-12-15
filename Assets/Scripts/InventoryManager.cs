@@ -11,11 +11,15 @@ public class InventoryManager : MonoBehaviour
     public Inventory inventory;
     [SerializeField] private UI_Inventory uiInventory;
 
+    public SaveInventory save;
+
     private void Awake()
     {   
         this.enabled = true;
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
+
+        save = FindObjectOfType<SaveInventory>();
     }
     private void Update()
     {
