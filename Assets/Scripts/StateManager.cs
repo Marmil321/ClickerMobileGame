@@ -10,8 +10,6 @@ public class StateManager : MonoBehaviour
 
     public UIScript ui;
 
-    public Text upgradeReqs;
-
     private void Start()
     {
         ui = FindObjectOfType<UIScript>(); 
@@ -20,7 +18,6 @@ public class StateManager : MonoBehaviour
     private void Update()
     {
         activeState = GetState();
-        upgradeReqs.text = activeState;
     }
     public string GetState()
     {

@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UpgradeManger : MonoBehaviour
 {
     public StateManager state;
 
     public int[] upgradeAmounts;
-    public Text upgradeAmountText;
+    public TMP_Text upgradeAmountText;
 
-    public int treeReq, stoneReq, ironReq;
+    public int[] reqs;
+    //tree  0
+    //stone 1
+    //iron  2
 
     private void Start()
     {
@@ -49,9 +53,9 @@ public class UpgradeManger : MonoBehaviour
         PlayerPrefs.SetInt("StoneLevel", upgradeAmounts[1]);
         PlayerPrefs.SetInt("FurnaceLevel", upgradeAmounts[2]);
 
-        treeReq = upgradeAmounts[0] * (100 * upgradeAmounts[0]);
-        stoneReq = upgradeAmounts[1] * (100 * upgradeAmounts[1]);
-        ironReq = upgradeAmounts[2] * (100 * upgradeAmounts[2]);
+        reqs[0] = upgradeAmounts[0] * (100 * upgradeAmounts[0]);
+        reqs[1] = upgradeAmounts[1] * (100 * upgradeAmounts[1]);
+        reqs[2] = upgradeAmounts[2] * (100 * upgradeAmounts[2]);
     }
     public int GetLevel()
     {

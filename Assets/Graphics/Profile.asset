@@ -146,11 +146,11 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.3
   fastMode:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
 --- !u!114 &5760962202685411257
 MonoBehaviour:
   m_ObjectHideFlags: 3

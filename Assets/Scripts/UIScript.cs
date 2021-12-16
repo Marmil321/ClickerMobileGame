@@ -168,56 +168,7 @@ public class UIScript : MonoBehaviour
                 break;
         }
     }
-    public void CheckReq()
-    {
-        StateManager state = FindObjectOfType<StateManager>();
-        UpgradeManger upgrade = FindObjectOfType<UpgradeManger>();
-        InventoryManager inv = FindObjectOfType<InventoryManager>();
-
-
-        switch (state.activeState)
-        {
-            case "tree":
-                if (PlayerPrefs.GetInt("WoodAmount") >= upgrade.treeReq)
-                {
-                    inv.RemoveMaterial("WoodAmount", upgrade.treeReq);
-                    Upgrade();
-                }
-                break;
-            case "stone":
-                if (PlayerPrefs.GetInt("StoneAmount") >= upgrade.stoneReq)
-                {
-                    inv.RemoveMaterial("StoneAmount", upgrade.stoneReq);
-                    Upgrade();
-                }
-                break;
-            case "furnace":
-                if (PlayerPrefs.GetInt("IronAmount") >= upgrade.ironReq)
-                {
-                    inv.RemoveMaterial("IronAmount", upgrade.ironReq);
-                    Upgrade();
-                }
-                break;
-        }
-    }
-    public void Upgrade()
-    {
-        StateManager state = FindObjectOfType<StateManager>();
-        UpgradeManger upgrade = FindObjectOfType<UpgradeManger>();
-
-        switch (state.activeState)
-        {
-            case "tree":
-                PlayerPrefs.SetInt("TreeLevel", upgrade.upgradeAmounts[0]++);
-                break;
-            case "stone":
-                PlayerPrefs.SetInt("StoneLevel", upgrade.upgradeAmounts[1]++);
-                break;
-            case "furnace":
-                PlayerPrefs.SetInt("FurnaceLevel", upgrade.upgradeAmounts[2]++);
-                break;
-        }
-    }
+    
     public void OpenInventory()
     {
         inventory.GetComponent<Canvas>().enabled = true;
