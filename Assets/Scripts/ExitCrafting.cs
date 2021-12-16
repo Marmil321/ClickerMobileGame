@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ExitCrafting : MonoBehaviour
 {
-    public GameObject close;
-
+    public Animator anim;
+    private void Start()
+    {
+        
+    }
     public void Exit()
     {
         this.GetComponent<Canvas>().enabled = false;
