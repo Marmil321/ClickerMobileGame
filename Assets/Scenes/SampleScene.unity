@@ -13461,7 +13461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeState: 
   ui: {fileID: 0}
-  upgradeReqs: {fileID: 0}
 --- !u!4 &997476663
 Transform:
   m_ObjectHideFlags: 0
@@ -13492,9 +13491,7 @@ MonoBehaviour:
   state: {fileID: 0}
   upgradeAmounts: 000000000000000000000000
   upgradeAmountText: {fileID: 2069797152}
-  treeReq: 0
-  stoneReq: 0
-  ironReq: 0
+  reqs: 000000000000000000000000
 --- !u!114 &997476665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33992,7 +33989,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fec9c1f454f1c74c840806e70d38aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  obj:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  classTest: 0
+  manager: {fileID: 0}
 --- !u!1 &1899201695
 GameObject:
   m_ObjectHideFlags: 0
