@@ -7,11 +7,12 @@ using TMPro;
 public class UpgradeManger : MonoBehaviour
 {
     public StateManager state;
+    public RequirementList requirementList;
 
     public int[] upgradeAmounts;
     public TMP_Text upgradeAmountText;
 
-    public int[] reqs;
+    public List<int> reqs = new List<int>();
     //tree  0
     //stone 1
     //iron  2
@@ -19,6 +20,7 @@ public class UpgradeManger : MonoBehaviour
     private void Start()
     {
         state = GetComponent<StateManager>();
+        requirementList = GetComponent<RequirementList>();
 
         if (PlayerPrefs.GetInt("TreeLevel") == 0)
         {
@@ -43,20 +45,32 @@ public class UpgradeManger : MonoBehaviour
         {
             upgradeAmounts[2] = PlayerPrefs.GetInt("FurnaceLevel");
         }
+
+       
     }
 
     private void Update()
     {
+        GetRequirements();
+
         upgradeAmountText.text = "Level: " + GetLevel().ToString();
 
         PlayerPrefs.SetInt("TreeLevel", upgradeAmounts[0]);
         PlayerPrefs.SetInt("StoneLevel", upgradeAmounts[1]);
         PlayerPrefs.SetInt("FurnaceLevel", upgradeAmounts[2]);
 
-        reqs[0] = upgradeAmounts[0] * (100 * upgradeAmounts[0]);
-        reqs[1] = upgradeAmounts[1] * (100 * upgradeAmounts[1]);
-        reqs[2] = upgradeAmounts[2] * (100 * upgradeAmounts[2]);
     }
+    public void GetRequirements()
+    {
+        switch (state.activeState)
+        {
+            default:
+            case "tree":     requirementList.Wood(); break; 
+            case "stone":    break;
+            case "furnace":  reqs[2] = 100; break;
+        }
+    } 
+
     public int GetLevel()
     {
         int i = 0;

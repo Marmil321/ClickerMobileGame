@@ -9,11 +9,9 @@ public class Upgrades : MonoBehaviour
     [SerializeField]public GameObject[] obj;
 
     public UpgradeManger manager;
-    //public Requirements req;
 
-    public Vector2[] placement;
+    public Transform[] placement;
     public TMP_Text[] text;
-    public GameObject[] test;
 
     Requirements req = new Requirements();
 
@@ -24,23 +22,35 @@ public class Upgrades : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             print(GetList());
-
-        }
+        }*/
     }
     public void CheckReq()
     {
         StateManager state = FindObjectOfType<StateManager>();
         InventoryManager inv = FindObjectOfType<InventoryManager>();
 
+        GameObject popup = this.transform.Find("Popup").gameObject;
+        if (popup.activeInHierarchy == true)
+        {
+            popup.SetActive(false);
+        }else
+        {
+            popup.SetActive(true);
+        }
+        
+
+        foreach (Transform child in this.transform.Find("parent"))
+        {
+            Destroy(child.gameObject);
+        }
         for(int i = 0; i < GetList().Count; i++)
         {
-            print(i);
-            test[i] = Instantiate(GetList()[i].material, placement[i], Quaternion.identity);
-            //test[i].GetComponentInChildren<TMP_Text>().text = GetList()[i].cost.ToString();
-            //test[i].transform.SetParent(this.transform);
+            GameObject inst = Instantiate(GetList()[i].material, placement[i].position, Quaternion.identity);
+            inst.GetComponentInChildren<TMP_Text>().text = GetList()[i].cost.ToString();
+            inst.transform.SetParent(this.transform.Find("parent").transform);
         }
 
         switch (state.activeState)
@@ -49,7 +59,7 @@ public class Upgrades : MonoBehaviour
                 if (PlayerPrefs.GetInt("WoodAmount") >= manager.reqs[0])
                 {
                     inv.RemoveMaterial("WoodAmount", manager.reqs[0]);
-                    Upgrade();
+                    //Upgrade();
                 }
                 break;
             case "stone":
@@ -90,13 +100,12 @@ public class Upgrades : MonoBehaviour
     {
         List<Requirements> list = new List<Requirements>();
 
-        for (int i = 0; i < manager.reqs.Length; i++)
+        for (int i = 0; i < manager.reqs.Count; i++)
         {
             if (manager.reqs[i] > 0)
             {
                 list.Add(new Requirements() { material = req.GetMaterial(i, obj), cost = manager.reqs[i] });
             }
-            print(list[i].material);
         }
 
         return list;
@@ -114,6 +123,7 @@ public class Upgrades : MonoBehaviour
                 case 0: return obj[0];
                 case 1: return obj[1];
                 case 2: return obj[2];
+                case 3: return obj[3];
             }
         }
     }
