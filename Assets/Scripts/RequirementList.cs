@@ -6,6 +6,15 @@ public class RequirementList : MonoBehaviour
 {
     public UpgradeManger manager;
 
+    //Level 1 Stone: Bronze
+    //Level 2 Stone: Iron
+    //Level 3 Stone: Gold
+    //Level 4 Stone: Gems
+
+    //Level 1 Tree: Wood
+    //Level 2 Tree: Apples
+    //Level 3 Tree: 
+
     private void Start()
     {
         manager = GetComponent<UpgradeManger>();

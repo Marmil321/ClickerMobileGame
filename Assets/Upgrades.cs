@@ -82,7 +82,7 @@ public class Upgrades : MonoBehaviour
         {
             if (inv.stone >= manager.reqs[1])
             {
-                if (inv.iron >= manager.reqs[2])
+                if (inv.bronze >= manager.reqs[2])
                 {
                     if (inv.stick >= manager.reqs[3])
                     {
@@ -98,7 +98,7 @@ public class Upgrades : MonoBehaviour
     {
         inv.RemoveMaterial("WoodAmount", manager.reqs[0]);
         inv.RemoveMaterial("StoneAmount", manager.reqs[1]);
-        inv.RemoveMaterial("IronAmount", manager.reqs[2]);
+        inv.RemoveMaterial("BronzeAmount", manager.reqs[2]);
         inv.RemoveMaterial("StickAmount", manager.reqs[3]);
     }
     public void Upgrade()

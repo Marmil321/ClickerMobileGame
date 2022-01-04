@@ -35,14 +35,14 @@ public class InventoryText : MonoBehaviour
                 }
                 break;
             case 1:
-                currentAmount.text = ShortenNumber(inv.ironOre);
+                currentAmount.text = ShortenNumber(inv.bronzeOre);
                 break;
         }
         
 
         woodText.text = ShortenNumber(inv.wood);
         stoneText.text = ShortenNumber(inv.stone);
-        ironText.text = ShortenNumber(inv.iron);
+        ironText.text = ShortenNumber(inv.bronze);
         coalText.text = ShortenNumber(inv.coal);
         stickText.text = ShortenNumber(inv.stick);
 
@@ -51,10 +51,10 @@ public class InventoryText : MonoBehaviour
     {
         if(value > 999 && value < 999999)
         {
-            return (value / 1000).ToString() + "k";
+            return (value / 1000).ToString("0.0") + "k";
         }else if (value > 999999 && value < 999999999)
         {
-            return (value / 1000000).ToString() + "m";
+            return (value / 1000000).ToString("0.0") + "m";
         }else if (value > 999999999)
         {
             return "too much";

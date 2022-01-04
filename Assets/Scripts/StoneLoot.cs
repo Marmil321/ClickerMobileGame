@@ -13,7 +13,7 @@ public class StoneLoot : MonoBehaviour
     }
     private void Update()
     {
-        amount = PlayerPrefs.GetInt("IronOreAmount");
+        amount = PlayerPrefs.GetInt("BronzeOreAmount");
     }
     private void OnMouseDown()
     {
@@ -22,7 +22,7 @@ public class StoneLoot : MonoBehaviour
         if (getIronOre == 25)
         {
             amount++;
-            PlayerPrefs.SetInt("IronOreAmount", amount);
+            PlayerPrefs.SetInt("BronzeOreAmount", amount);
         }
     }
 }
