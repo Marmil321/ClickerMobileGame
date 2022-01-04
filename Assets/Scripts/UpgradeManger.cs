@@ -13,9 +13,10 @@ public class UpgradeManger : MonoBehaviour
     public TMP_Text upgradeAmountText;
 
     public List<int> reqs = new List<int>();
-    //tree  0
-    //stone 1
-    //iron  2
+    //tree      0
+    //stone     1
+    //iron      2
+    //sticks    3
 
     private void Start()
     {
@@ -45,8 +46,6 @@ public class UpgradeManger : MonoBehaviour
         {
             upgradeAmounts[2] = PlayerPrefs.GetInt("FurnaceLevel");
         }
-
-       
     }
 
     private void Update()
@@ -66,8 +65,8 @@ public class UpgradeManger : MonoBehaviour
         {
             default:
             case "tree":     requirementList.Wood(); break; 
-            case "stone":    break;
-            case "furnace":  reqs[2] = 100; break;
+            case "stone":    requirementList.Stone(); break;
+            case "furnace":  requirementList.Furnace(); break;
         }
     } 
 
