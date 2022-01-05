@@ -30,13 +30,13 @@ public class Click : MonoBehaviour
     }
     void Update()
     {
-        if (GameObject.Find("CraftingCanvas").GetComponent<Canvas>().enabled)
+        /*if (GameObject.Find("CraftingCanvas").GetComponent<Canvas>().enabled)
         {
             this.GetComponent<Collider2D>().enabled = false;
         }else
         {
             this.GetComponent<Collider2D>().enabled = true;
-        }
+        }*/
 
         amount = PlayerPrefs.GetInt(material);
 

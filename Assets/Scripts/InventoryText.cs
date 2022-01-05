@@ -12,11 +12,13 @@ public class InventoryText : MonoBehaviour
 
     public InventoryManager inv;
     public UIScript ui;
+    private WorldSpaceCameraScript oreStage;
 
     private void Start()
     {
         inv = FindObjectOfType<InventoryManager>();
         ui = FindObjectOfType<UIScript>();
+        oreStage = FindObjectOfType<WorldSpaceCameraScript>();
     }
 
     private void Update()
@@ -35,7 +37,15 @@ public class InventoryText : MonoBehaviour
                 }
                 break;
             case 1:
-                currentAmount.text = ShortenNumber(inv.bronzeOre);
+                switch (oreStage.stage)
+                {
+                    case 0:
+                        currentAmount.text = ShortenNumber(inv.bronzeOre);
+                        break;
+                    case 1:
+                        currentAmount.text = ShortenNumber(inv.ironOre);
+                        break;
+                }             
                 break;
         }
         

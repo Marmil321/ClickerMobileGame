@@ -10,7 +10,7 @@ public class WorldSpaceCameraScript : MonoBehaviour
     public GameObject furnace, tree;
     public GameObject cooldownBar;
     [SerializeField]private GameObject row;
-    private int stage;
+    public int stage;
 
     public Vector3[] offsets;
 

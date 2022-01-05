@@ -10665,6 +10665,7 @@ GameObject:
   - component: {fileID: 578323500}
   - component: {fileID: 578323499}
   - component: {fileID: 578323504}
+  - component: {fileID: 578323505}
   m_Layer: 3
   m_Name: Tree
   m_TagString: Untagged
@@ -10809,6 +10810,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   ui: {fileID: 0}
+--- !u!114 &578323505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578323498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0129f8d0b4571e4abebbc80785e9f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menus:
+  - {fileID: 1718126458}
+  - {fileID: 404642721}
+  - {fileID: 601197297}
+  - {fileID: 1160329021}
+  col: {fileID: 0}
 --- !u!1 &578382375
 GameObject:
   m_ObjectHideFlags: 0
@@ -20710,6 +20729,7 @@ GameObject:
   - component: {fileID: 1486135785}
   - component: {fileID: 1486135784}
   - component: {fileID: 1486135786}
+  - component: {fileID: 1486135787}
   m_Layer: 3
   m_Name: Stone
   m_TagString: Untagged
@@ -20875,7 +20895,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d211d538a4d054aa2e493ef1e22dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
+  inv: {fileID: 0}
+  bronzeChance: 30
+  ironChance: 100
+  goldChance: 300
+--- !u!114 &1486135787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486135779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0129f8d0b4571e4abebbc80785e9f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menus:
+  - {fileID: 1718126458}
+  - {fileID: 404642721}
+  - {fileID: 601197297}
+  - {fileID: 1160329021}
+  col: {fileID: 0}
 --- !u!224 &1488617189 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3739233348142587833, guid: c633b4588eb87c246a652d8878dcc21c, type: 3}
@@ -22952,6 +22993,7 @@ MonoBehaviour:
   tree: {fileID: 578323498}
   cooldownBar: {fileID: 3910043789798330574, guid: 816029bc972eeb24295f716f9e84d4cf, type: 3}
   row: {fileID: 688140887}
+  stage: 0
   offsets:
   - {x: 0, y: 2.3, z: 0}
   - {x: -1.5, y: -1.9, z: 0}
