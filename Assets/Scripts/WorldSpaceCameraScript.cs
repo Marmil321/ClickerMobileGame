@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WorldSpaceCameraScript : MonoBehaviour
 {
-    public Button smeltIronButton;
+    public Button smeltCopperButton;
     public Image axeIcon;
     public GameObject furnace, tree;
     public GameObject cooldownBar;
@@ -15,15 +15,12 @@ public class WorldSpaceCameraScript : MonoBehaviour
     public Vector3[] offsets;
 
     public InventoryManager inv;
-    //Materials
-    int wood;
 
     private void Update()
     {
-        wood = PlayerPrefs.GetInt("WoodAmount");
 
         inv = FindObjectOfType<InventoryManager>();
-        smeltIronButton.gameObject.transform.position = furnace.transform.position + offsets[0];
+        smeltCopperButton.gameObject.transform.position = furnace.transform.position + offsets[0];
         //row.transform.position = smeltIronButton.gameObject.transform.position;
         axeIcon.gameObject.transform.position = tree.transform.position + offsets[2];
 
@@ -50,13 +47,13 @@ public class WorldSpaceCameraScript : MonoBehaviour
         }
     }
 
-    public void SmeltIron()
+    public void SmeltCopper()
     {
-        if (wood >= inv.coal && inv.copperOre >= 1)
+        if (inv.coal > 0 && inv.copperOre >= 1)
         {
             inv.RemoveMaterial("CoalAmount", 1);
 
-            smeltIronButton.gameObject.SetActive(false);
+            smeltCopperButton.gameObject.SetActive(false);
             StartCoroutine(StartSmelt("CopperAmount",inv.copper,5));
         }
     }
@@ -69,7 +66,7 @@ public class WorldSpaceCameraScript : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         inv.RemoveMaterial("CopperOreAmount", 1);
         PlayerPrefs.SetInt(output, i + 1);
-        smeltIronButton.gameObject.SetActive(true);
+        smeltCopperButton.gameObject.SetActive(true);
     }
     public void Next()
     {

@@ -90,6 +90,7 @@ public class DisplayCrafting : MonoBehaviour
 
             case 3:
                 inv.Add("StickAmount", 1);
+                inv.RemoveMaterial("WoodAmount", 3);
                 break;
 
 
@@ -131,30 +132,30 @@ public class DisplayCrafting : MonoBehaviour
             }
         }      
     }
-    public void CraftIronAxe()
+    public void CraftCopperAxe()
     {
         foreach (Transform child in table)
         {
             Destroy(child.gameObject);
         }
 
-        if (inv.wood >= 1)
+        if (inv.stick >= 1)
         {
             GameObject obj1 = Instantiate(icons[4], grid[0].transform.position, Quaternion.identity);
             obj1.transform.SetParent(table.transform);
-            if (inv.wood >= 2)
+            if (inv.stick >= 2)
             {
                 GameObject obj2 = Instantiate(icons[4], grid[3].transform.position, Quaternion.identity);
                 obj2.transform.SetParent(table.transform);
-                if (inv.wood >= 3)
+                if (inv.stick >= 3)
                 {
                     GameObject obj3 = Instantiate(icons[4], grid[6].transform.position, Quaternion.identity);
                     obj3.transform.SetParent(table.transform);
-                    if (inv.iron >= 1)
+                    if (inv.copper >= 1)
                     {
                         GameObject obj4 = Instantiate(icons[5], grid[1].transform.position, Quaternion.identity);
                         obj4.transform.SetParent(table.transform);
-                        if (inv.iron >= 2)
+                        if (inv.copper >= 2)
                         {
                             GameObject obj5 = Instantiate(icons[5], grid[4].transform.position, Quaternion.identity);
                             obj5.transform.SetParent(table.transform);
