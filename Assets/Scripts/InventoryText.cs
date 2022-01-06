@@ -40,7 +40,7 @@ public class InventoryText : MonoBehaviour
                 switch (oreStage.stage)
                 {
                     case 0:
-                        currentAmount.text = ShortenNumber(inv.bronzeOre);
+                        currentAmount.text = ShortenNumber(inv.copperOre);
                         break;
                     case 1:
                         currentAmount.text = ShortenNumber(inv.ironOre);
@@ -52,7 +52,7 @@ public class InventoryText : MonoBehaviour
 
         woodText.text = ShortenNumber(inv.wood);
         stoneText.text = ShortenNumber(inv.stone);
-        ironText.text = ShortenNumber(inv.bronze);
+        ironText.text = ShortenNumber(inv.copper);
         coalText.text = ShortenNumber(inv.coal);
         stickText.text = ShortenNumber(inv.stick);
 

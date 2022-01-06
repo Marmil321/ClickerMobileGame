@@ -6,7 +6,7 @@ public class RequirementList : MonoBehaviour
 {
     public UpgradeManger manager;
 
-    //Level 1 Stone: Bronze
+    //Level 1 Stone: Copper
     //Level 2 Stone: Iron
     //Level 3 Stone: Gold
     //Level 4 Stone: Gems

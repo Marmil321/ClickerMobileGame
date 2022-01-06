@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class StoneLoot : MonoBehaviour
 {
-    int bronzeAmount;
+    int copperAmount;
     public InventoryManager inv;
     UpgradeManger upgrade;
 
-    public int bronzeChance, ironChance, goldChance;
+    public int copperChance, ironChance, goldChance;
 
     private void Start()
     {
@@ -18,18 +18,18 @@ public class StoneLoot : MonoBehaviour
     }
     private void Update()
     {
-        bronzeAmount = PlayerPrefs.GetInt("BronzeOreAmount");
+        copperAmount = PlayerPrefs.GetInt("CopperOreAmount");
     }
     private void OnMouseDown()
     {
-        int getBronzeOre = Random.Range(0, bronzeChance + 1);
+        int getCopperOre = Random.Range(0, copperChance + 1);
         int getIronOre = Random.Range(0, ironChance + 1);
         int getGoldOre = Random.Range(0, goldChance + 1);
  
-        if (getBronzeOre == bronzeChance)
+        if (getCopperOre == copperChance)
         {
-            inv.Add("BronzeOreAmount", 1);
-            print("bronze");
+            inv.Add("CopperOreAmount", 1);
+            print("copper");
         }
         if(getIronOre == ironChance && upgrade.GetLevel() >= 2)
         {

@@ -52,12 +52,12 @@ public class WorldSpaceCameraScript : MonoBehaviour
 
     public void SmeltIron()
     {
-        if (wood >= inv.coal && inv.bronzeOre >= 1)
+        if (wood >= inv.coal && inv.copperOre >= 1)
         {
             inv.RemoveMaterial("CoalAmount", 1);
 
             smeltIronButton.gameObject.SetActive(false);
-            StartCoroutine(StartSmelt("BronzeAmount",inv.bronze,5));
+            StartCoroutine(StartSmelt("CopperAmount",inv.copper,5));
         }
     }
     IEnumerator StartSmelt(string output, int i, float cooldown)
@@ -67,7 +67,7 @@ public class WorldSpaceCameraScript : MonoBehaviour
         bar.transform.SetParent(furnace.transform);
 
         yield return new WaitForSeconds(cooldown);
-        inv.RemoveMaterial("BronzeOreAmount", 1);
+        inv.RemoveMaterial("CopperOreAmount", 1);
         PlayerPrefs.SetInt(output, i + 1);
         smeltIronButton.gameObject.SetActive(true);
     }
