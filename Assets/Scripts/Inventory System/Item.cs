@@ -6,12 +6,8 @@ public class Item
 {
    public enum ItemType
     {
-        IronAxe,
-        Food,
-        Coal,
-        Pickaxe,
-        test,
-        xd,
+        CopperAxe,
+        CopperPickaxe
     }
 
     public ItemType itemType;
@@ -21,9 +17,9 @@ public class Item
     {
         switch (itemType)
         {
-            default:                return ItemAssets.Instance.none;
-            case ItemType.IronAxe: return ItemAssets.Instance.axeSprite;
-            case ItemType.Coal:     return ItemAssets.Instance.coalSprite;
+            default:                        return ItemAssets.Instance.none;
+            case ItemType.CopperAxe:        return ItemAssets.Instance.CopperAxe;
+            case ItemType.CopperPickaxe:    return ItemAssets.Instance.CopperPickaxe;
         }
     }
 
@@ -32,9 +28,7 @@ public class Item
         switch (itemType)
         {
             default:
-            case ItemType.Coal:
-                return true;
-            case ItemType.IronAxe:
+            case ItemType.CopperAxe:
                 return false;
         }
     }

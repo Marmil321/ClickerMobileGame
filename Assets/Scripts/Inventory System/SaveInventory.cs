@@ -26,6 +26,8 @@ public class SaveInventory : MonoBehaviour
         {
             LoadInv();
         }
+
+        PlayerPrefs.SetInt("saveItemCount", amount);
     }
     public void SaveInv()
     {
@@ -39,8 +41,7 @@ public class SaveInventory : MonoBehaviour
 
         foreach(Item item in inventory.GetItemList())
         {
-            amount++;
-            PlayerPrefs.SetInt("saveItemCount", amount);
+            amount++;          
 
             string itemString = item.itemType.ToString();
             PlayerPrefs.SetString("itemString" + amount, itemString);
@@ -63,8 +64,8 @@ public class SaveInventory : MonoBehaviour
         {
             switch (item)
             {
-                case "IronAxe": manager.AddItem(Item.ItemType.IronAxe, 1); break;
-                case "Coal":    manager.AddItem(Item.ItemType.Coal, 1); break;
+                case "CopperAxe":       manager.AddItem(Item.ItemType.CopperAxe, 1);     break;
+                case "CopperPickaxe":   manager.AddItem(Item.ItemType.CopperPickaxe, 1); break;
             }
             
         }

@@ -84,15 +84,21 @@ public class DisplayCrafting : MonoBehaviour
                 CraftCoal();
                 break;
             case 2: 
-                inv.AddItem(Item.ItemType.IronAxe, 1);
+                inv.AddItem(Item.ItemType.CopperAxe, 1);
                 inv.save.SaveInv();
                 break;
 
             case 3:
-                inv.Add("StickAmount", 1);
-                inv.RemoveMaterial("WoodAmount", 3);
+                if (inv.wood >= 3)
+                {
+                    inv.Add("StickAmount", 1);
+                    inv.RemoveMaterial("WoodAmount", 3);
+                }          
                 break;
-
+            case 4:
+                inv.AddItem(Item.ItemType.CopperPickaxe, 1);
+                inv.save.SaveInv();
+                break;
 
         }
     }
@@ -194,28 +200,48 @@ public class DisplayCrafting : MonoBehaviour
             }
         }
     }
-    public void CraftPlanks()
+    public void CraftCopperPickaxe()
     {
         foreach (Transform child in table)
         {
             Destroy(child.gameObject);
         }
 
-        if (inv.wood > 0)
+        if (inv.stick > 0)
         {
-            GameObject obj1 = Instantiate(icons[1], grid[3].transform.position, Quaternion.identity);
+            GameObject obj1 = Instantiate(icons[4], grid[4].transform.position, Quaternion.identity);
             obj1.transform.SetParent(table.transform);
-            if (inv.wood > 1)
+            if (inv.stick > 1)
             {
-                GameObject obj2 = Instantiate(icons[1], grid[4].transform.position, Quaternion.identity);
+                GameObject obj2 = Instantiate(icons[4], grid[7].transform.position, Quaternion.identity);
                 obj2.transform.SetParent(table.transform);
-                if (inv.wood > 2)
+                if (inv.copper > 0)
                 {
-                    GameObject obj3 = Instantiate(icons[1], grid[5].transform.position, Quaternion.identity);
+                    GameObject obj3 = Instantiate(icons[5], grid[3].transform.position, Quaternion.identity);
                     obj3.transform.SetParent(table.transform);
-                    GameObject obj4 = Instantiate(icons[0], grid[9].transform.position, Quaternion.identity);
-                    obj4.transform.SetParent(table.transform);
-                    selectedItem = 3;
+                    if (inv.copper > 1)
+                    {
+                        GameObject obj4 = Instantiate(icons[5], grid[0].transform.position, Quaternion.identity);
+                        obj4.transform.SetParent(table.transform);
+                        if (inv.copper > 2)
+                        {
+                            GameObject obj5 = Instantiate(icons[5], grid[1].transform.position, Quaternion.identity);
+                            obj5.transform.SetParent(table.transform);
+                            if (inv.copper > 3)
+                            {
+                                GameObject obj6 = Instantiate(icons[5], grid[2].transform.position, Quaternion.identity);
+                                obj6.transform.SetParent(table.transform);
+                                if (inv.copper > 4)
+                                { 
+                                    GameObject obj8 = Instantiate(icons[5], grid[5].transform.position, Quaternion.identity);
+                                    obj8.transform.SetParent(table.transform);
+                                    GameObject obj9 = Instantiate(icons[3], grid[9].transform.position, Quaternion.identity);
+                                    obj9.transform.SetParent(table.transform);
+                                    selectedItem = 4;
+                                }
+                            }                           
+                        }
+                    }
                 }
             }
         }

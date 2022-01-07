@@ -11,6 +11,6 @@ public class ItemAssets : MonoBehaviour
         Instance = this;
     }
 
-    public Sprite axeSprite, coalSprite, none;
+    public Sprite CopperAxe, CopperPickaxe, none;
 
 }

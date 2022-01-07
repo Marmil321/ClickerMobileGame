@@ -23572,7 +23572,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1253976886}
         m_TargetAssemblyTypeName: DisplayCrafting, Assembly-CSharp
-        m_MethodName: CraftIronAxe
+        m_MethodName: CraftCopperPickaxe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34668,8 +34668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6458e71b8ac30114bbef76929c524470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axeSprite: {fileID: 21300000, guid: 87ad4a2c5f47fdd4b814875db83a5918, type: 3}
-  coalSprite: {fileID: 21300000, guid: f3b99abe815ec7c42881fd0c97dd3325, type: 3}
+  CopperAxe: {fileID: 21300000, guid: 63bd9583042883d49bad322db16225d2, type: 3}
+  CopperPickaxe: {fileID: 21300000, guid: 828d6f2dfbd985f428e9e77bd8702331, type: 3}
   none: {fileID: 21300000, guid: e7e10252365abba4390d20264cf82136, type: 3}
 --- !u!1 &1861800033
 GameObject:

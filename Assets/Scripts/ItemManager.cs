@@ -24,18 +24,25 @@ public class ItemManager : MonoBehaviour
             case 0:
                 break;
             case 1:
-                UseAxe(); 
+                UseCopperAxe(); 
             break;
+            case 2:
+                UseCopperPickaxe();
+                break;
         }
     }
 
     //Use items
-    void UseAxe()
+    void UseCopperAxe()
     {
-        inventoryManager.RemoveItem(Item.ItemType.IronAxe);
+        inventoryManager.RemoveItem(Item.ItemType.CopperAxe);
         inventoryManager.save.SaveInv();
         usingAxe = true;
         axeIcon.SetActive(true);
+    }
+    void UseCopperPickaxe()
+    {
+        inventoryManager.RemoveItem(Item.ItemType.CopperPickaxe);
     }
 }
 

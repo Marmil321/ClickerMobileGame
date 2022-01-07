@@ -22,10 +22,10 @@ public class InventoryInteraction : MonoBehaviour
     {
         switch (sprite.name)
         {
-            default:         return 0;
-            case "ironAxe":  return 1;
-            case "coal":     return 2;
-            case "none":     return 3;
+            default:                  return 0;
+            case "copperAxe":         return 1;
+            case "copperPickaxe":     return 2;
+            case "none":              return 3;
         }
     }
     private void OnDisable()
