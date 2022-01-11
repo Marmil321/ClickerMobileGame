@@ -75,7 +75,6 @@ public class DisplayCrafting : MonoBehaviour
                 print("ERRoR");
                 break;
             case 1:
-                print("Craft Coal");
                 if (inv.wood >= 5)
                 {
                     inv.RemoveMaterial("WoodAmount", 5);
@@ -84,8 +83,15 @@ public class DisplayCrafting : MonoBehaviour
                 CraftCoal();
                 break;
             case 2: 
-                inv.AddItem(Item.ItemType.CopperAxe, 1);
-                inv.save.SaveInv();
+                if(inv.stick >=3 && inv.copper >= 2)
+                {
+                    inv.AddItem(Item.ItemType.CopperAxe, 1);
+                    inv.save.SaveInv();
+
+                    inv.RemoveMaterial("StickAmount", 3);
+                    inv.RemoveMaterial("CopperAmount", 2);                   
+                }
+                CraftCopperAxe();
                 break;
 
             case 3:
@@ -93,11 +99,19 @@ public class DisplayCrafting : MonoBehaviour
                 {
                     inv.Add("StickAmount", 1);
                     inv.RemoveMaterial("WoodAmount", 3);
-                }          
+                }
+                CraftStick();
                 break;
             case 4:
-                inv.AddItem(Item.ItemType.CopperPickaxe, 1);
-                inv.save.SaveInv();
+                if(inv.stick >= 2 && inv.copper >= 5)
+                {
+                    inv.AddItem(Item.ItemType.CopperPickaxe, 1);
+                    inv.save.SaveInv();
+
+                    inv.RemoveMaterial("StickAmount", 2);
+                    inv.RemoveMaterial("CopperAmount", 5);
+                }          
+                CraftCopperPickaxe();
                 break;
 
         }

@@ -17,4 +17,14 @@ public class DebugScript : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
     }
+    public void OneCopper()
+    {
+        int newValue = PlayerPrefs.GetInt("CopperAmount") + 1;
+        FindObjectOfType<InventoryManager>().Add("CopperAmount", newValue);
+    }
+    public void HundredAxes()
+    {
+        int newValue = PlayerPrefs.GetInt("AutoWood") + 100;
+        PlayerPrefs.SetInt("AutoWood", newValue);
+    }
 }

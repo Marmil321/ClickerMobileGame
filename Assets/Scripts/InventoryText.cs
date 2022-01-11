@@ -8,7 +8,7 @@ public class InventoryText : MonoBehaviour
 {
     public Text woodText, stoneText, ironText, coalText, stickText;
     public int testint;
-    public TextMeshProUGUI currentAmount;
+    public TextMeshProUGUI currentAmount, autoText;
 
     public InventoryManager inv;
     public UIScript ui;
@@ -30,9 +30,11 @@ public class InventoryText : MonoBehaviour
                 {
                     case 0:
                         currentAmount.text = ShortenNumber(inv.wood);
+                        autoText.text = PlayerPrefs.GetInt("AutoWood").ToString() + " / Sec";
                         break;
                     case 1:
                         currentAmount.text = ShortenNumber(inv.stone);
+                        autoText.text = PlayerPrefs.GetInt("AutoStone").ToString() + " / Sec";
                         break;
                 }
                 break;

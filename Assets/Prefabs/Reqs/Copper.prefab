@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5403126432040722658}
   - component: {fileID: 5403126432040722657}
   m_Layer: 3
-  m_Name: Iron
+  m_Name: Copper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aefc8ea5c353a334e8c1930c87c43f68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df56599033bab6942ace6ac7043806e4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

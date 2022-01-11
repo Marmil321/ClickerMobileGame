@@ -35,14 +35,17 @@ public class ItemManager : MonoBehaviour
     //Use items
     void UseCopperAxe()
     {
+        int Newvalue = PlayerPrefs.GetInt("AutoWood") + 1;
         inventoryManager.RemoveItem(Item.ItemType.CopperAxe);
         inventoryManager.save.SaveInv();
-        usingAxe = true;
-        axeIcon.SetActive(true);
+        PlayerPrefs.SetInt("AutoWood", Newvalue);
     }
     void UseCopperPickaxe()
     {
+        int Newvalue = PlayerPrefs.GetInt("AutoStone") + 1;
         inventoryManager.RemoveItem(Item.ItemType.CopperPickaxe);
+        inventoryManager.save.SaveInv();
+        PlayerPrefs.SetInt("AutoStone", Newvalue);
     }
 }
 
