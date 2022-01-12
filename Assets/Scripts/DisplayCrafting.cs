@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisplayCrafting : MonoBehaviour
 {
@@ -123,33 +124,14 @@ public class DisplayCrafting : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (inv.wood > 0)
+        if (inv.wood >= 3)
         {
-            GameObject obj1 = Instantiate(icons[1], grid[1].transform.position, Quaternion.identity);
-            obj1.transform.SetParent(table.transform);
-            if(inv.wood > 1)
-            {
-                GameObject obj2 = Instantiate(icons[1], grid[3].transform.position, Quaternion.identity);
-                obj2.transform.SetParent(table.transform);
-                if(inv.wood > 2)
-                {
-                    GameObject obj3 = Instantiate(icons[1], grid[4].transform.position, Quaternion.identity);
-                    obj3.transform.SetParent(table.transform);
-                    if(inv.wood > 3)
-                    {
-                        GameObject obj4 = Instantiate(icons[1], grid[5].transform.position, Quaternion.identity);
-                        obj4.transform.SetParent(table.transform);
-                        if (inv.wood > 4)
-                        {
-                            GameObject obj5 = Instantiate(icons[1], grid[7].transform.position, Quaternion.identity);
-                            obj5.transform.SetParent(table.transform);
-                            GameObject obj6 = Instantiate(icons[2], grid[9].transform.position, Quaternion.identity);
-                            obj6.transform.SetParent(table.transform);
-                            selectedItem = 1;
-                        }
-                    }
-                }
-            }
+            GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
+            obj1.transform.SetParent(table.transform, true);
+            obj1.GetComponent<RectTransform>().localScale = new Vector2(1.2f,1.2f);
+            obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
+                 
+            selectedItem = 1;           
         }      
     }
     public void CraftCopperAxe()

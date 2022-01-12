@@ -20,6 +20,7 @@ public class OpenCloseInventory : MonoBehaviour
         GetComponent<Canvas>().enabled = true;
 
         iconAnim.Play("BackpackClick");
+
         if(animObj == "wholecrafting")
         {
             
