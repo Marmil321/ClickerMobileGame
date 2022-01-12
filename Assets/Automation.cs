@@ -19,16 +19,21 @@ public class Automation : MonoBehaviour
         StartCoroutine(AutoFarmWood());
         StartCoroutine(AutoFarmStone());
     }
+    private int AutoAmount(string material, int index)
+    {
+        return PlayerPrefs.GetInt("Auto" + material) * upgrades.upgradeAmounts[index];
+    }
     IEnumerator AutoFarmWood()
     {
         yield return new WaitForSeconds(1);
-        inv.Add("WoodAmount", PlayerPrefs.GetInt("AutoWood") * upgrades.upgradeAmounts[0]);
+        inv.Add("WoodAmount", AutoAmount("Wood", 0));
 
         loop();
     }
     IEnumerator AutoFarmStone()
     {
         yield return new WaitForSeconds(1);
-        inv.Add("StoneAmount", PlayerPrefs.GetInt("AutoStone") * upgrades.upgradeAmounts[1]);
+        inv.Add("StoneAmount", AutoAmount("Stone", 1));
     }
+    
 }
