@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenCloseInventory : MonoBehaviour
+public class OpenCloseMenu : MonoBehaviour
 {
     public Animator anim, iconAnim;
     public string animObj;
@@ -16,22 +16,23 @@ public class OpenCloseInventory : MonoBehaviour
 
    public void Open()
     {
-        anim.Play("InventoryDown");
+        anim.Play("MenuDown");
         GetComponent<Canvas>().enabled = true;
 
         iconAnim.Play("BackpackClick");
 
         if(animObj == "wholecrafting")
         {
-            
-        }else if(animObj == "wholeinventory")
+            GameObject.Find("wholeinventory").GetComponent<Animator>().Play("MenuUp");
+        }
+        else if(animObj == "wholeinventory")
         {
-
+            GameObject.Find("wholecrafting").GetComponent<Animator>().Play("MenuUp");
         }
     }
     public void Close()
     {
-        anim.Play("InventoryUp");
+        anim.Play("MenuUp");
         StartCoroutine(CloseTimer());
 
         if (animObj == "wholecrafting")

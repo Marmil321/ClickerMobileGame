@@ -12,13 +12,13 @@ public class InventoryText : MonoBehaviour
 
     public InventoryManager inv;
     public UIScript ui;
-    private WorldSpaceCameraScript oreStage;
+    private WorldSpaceCanvasScript oreStage;
 
     private void Start()
     {
         inv = FindObjectOfType<InventoryManager>();
         ui = FindObjectOfType<UIScript>();
-        oreStage = FindObjectOfType<WorldSpaceCameraScript>();
+        oreStage = FindObjectOfType<WorldSpaceCanvasScript>();
     }
 
     private void Update()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorldSpaceCameraScript : MonoBehaviour
+public class WorldSpaceCanvasScript : MonoBehaviour
 {
     public Button smeltCopperButton;
     public Image axeIcon;
@@ -18,7 +18,6 @@ public class WorldSpaceCameraScript : MonoBehaviour
 
     private void Update()
     {
-
         inv = FindObjectOfType<InventoryManager>();
         smeltCopperButton.gameObject.transform.position = furnace.transform.position + offsets[0];
         //row.transform.position = smeltIronButton.gameObject.transform.position;

@@ -20,12 +20,11 @@ public class DisplayCrafting : MonoBehaviour
     public GameObject[] icons;
     //0 - Placeholder
     //1 - Wood
-    //2 - Coal 
-    //3 - IronAxe
-    //4 - Stick
-    //5 - IronBar
+    //2 - Copper
+    //3 - 
+    //4 - 
+    //5 - 
     //6 -
-
 
     private Inventory inventory;
     private void Awake()
@@ -90,7 +89,9 @@ public class DisplayCrafting : MonoBehaviour
                     inv.save.SaveInv();
 
                     inv.RemoveMaterial("StickAmount", 3);
-                    inv.RemoveMaterial("CopperAmount", 2);                   
+                    inv.RemoveMaterial("CopperAmount", 2);
+
+                    FindObjectOfType<FirstItem>().NewItem(1, "Copperaxe");
                 }
                 CraftCopperAxe();
                 break;
@@ -111,6 +112,8 @@ public class DisplayCrafting : MonoBehaviour
 
                     inv.RemoveMaterial("StickAmount", 2);
                     inv.RemoveMaterial("CopperAmount", 5);
+
+                    FindObjectOfType<FirstItem>().NewItem(0, "CopperPickaxe");
                 }          
                 CraftCopperPickaxe();
                 break;
@@ -128,7 +131,7 @@ public class DisplayCrafting : MonoBehaviour
         {
             GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
             obj1.transform.SetParent(table.transform, true);
-            obj1.GetComponent<RectTransform>().localScale = new Vector2(1.2f,1.2f);
+            obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f,1.2f,1);
             obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
                  
             selectedItem = 1;           
@@ -141,33 +144,19 @@ public class DisplayCrafting : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (inv.stick >= 1)
+        if (inv.stick >= 3 && inv.copper >= 3)
         {
-            GameObject obj1 = Instantiate(icons[4], grid[0].transform.position, Quaternion.identity);
-            obj1.transform.SetParent(table.transform);
-            if (inv.stick >= 2)
-            {
-                GameObject obj2 = Instantiate(icons[4], grid[3].transform.position, Quaternion.identity);
-                obj2.transform.SetParent(table.transform);
-                if (inv.stick >= 3)
-                {
-                    GameObject obj3 = Instantiate(icons[4], grid[6].transform.position, Quaternion.identity);
-                    obj3.transform.SetParent(table.transform);
-                    if (inv.copper >= 1)
-                    {
-                        GameObject obj4 = Instantiate(icons[5], grid[1].transform.position, Quaternion.identity);
-                        obj4.transform.SetParent(table.transform);
-                        if (inv.copper >= 2)
-                        {
-                            GameObject obj5 = Instantiate(icons[5], grid[4].transform.position, Quaternion.identity);
-                            obj5.transform.SetParent(table.transform);
-                            GameObject obj6 = Instantiate(icons[3], grid[9].transform.position, Quaternion.identity);
-                            obj6.transform.SetParent(table.transform);
-                            selectedItem = 2;
-                        }
-                    }
-                }
-            }
+            GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
+            GameObject obj2 = Instantiate(icons[2], grid[1].transform.position, Quaternion.identity);
+            obj1.transform.SetParent(table.transform, true);
+            obj2.transform.SetParent(table.transform, true);
+
+            obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
+            obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
+            obj2.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
+            obj2.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
+
+            selectedItem = 2;
         }
     }
     public void CraftStick()
@@ -177,23 +166,14 @@ public class DisplayCrafting : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (inv.wood > 0)
+        if (inv.wood >= 3)
         {
-            GameObject obj1 = Instantiate(icons[1], grid[1].transform.position, Quaternion.identity);
-            obj1.transform.SetParent(table.transform);
-            if (inv.wood > 1)
-            {
-                GameObject obj2 = Instantiate(icons[1], grid[4].transform.position, Quaternion.identity);
-                obj2.transform.SetParent(table.transform);
-                if (inv.wood > 2)
-                {
-                    GameObject obj3 = Instantiate(icons[1], grid[7].transform.position, Quaternion.identity);
-                    obj3.transform.SetParent(table.transform);
-                    GameObject obj4 = Instantiate(icons[4], grid[9].transform.position, Quaternion.identity);
-                    obj4.transform.SetParent(table.transform);
-                    selectedItem = 3;
-                }
-            }
+            GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
+            obj1.transform.SetParent(table.transform, true);
+            obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
+            obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
+
+            selectedItem = 3;
         }
     }
     public void CraftCopperPickaxe()
@@ -203,43 +183,19 @@ public class DisplayCrafting : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (inv.stick > 0)
+        if (inv.stick >= 2 && inv.copper >= 5)
         {
-            GameObject obj1 = Instantiate(icons[4], grid[4].transform.position, Quaternion.identity);
-            obj1.transform.SetParent(table.transform);
-            if (inv.stick > 1)
-            {
-                GameObject obj2 = Instantiate(icons[4], grid[7].transform.position, Quaternion.identity);
-                obj2.transform.SetParent(table.transform);
-                if (inv.copper > 0)
-                {
-                    GameObject obj3 = Instantiate(icons[5], grid[3].transform.position, Quaternion.identity);
-                    obj3.transform.SetParent(table.transform);
-                    if (inv.copper > 1)
-                    {
-                        GameObject obj4 = Instantiate(icons[5], grid[0].transform.position, Quaternion.identity);
-                        obj4.transform.SetParent(table.transform);
-                        if (inv.copper > 2)
-                        {
-                            GameObject obj5 = Instantiate(icons[5], grid[1].transform.position, Quaternion.identity);
-                            obj5.transform.SetParent(table.transform);
-                            if (inv.copper > 3)
-                            {
-                                GameObject obj6 = Instantiate(icons[5], grid[2].transform.position, Quaternion.identity);
-                                obj6.transform.SetParent(table.transform);
-                                if (inv.copper > 4)
-                                { 
-                                    GameObject obj8 = Instantiate(icons[5], grid[5].transform.position, Quaternion.identity);
-                                    obj8.transform.SetParent(table.transform);
-                                    GameObject obj9 = Instantiate(icons[3], grid[9].transform.position, Quaternion.identity);
-                                    obj9.transform.SetParent(table.transform);
-                                    selectedItem = 4;
-                                }
-                            }                           
-                        }
-                    }
-                }
-            }
+            GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
+            GameObject obj2 = Instantiate(icons[2], grid[1].transform.position, Quaternion.identity);
+            obj1.transform.SetParent(table.transform, true);
+            obj2.transform.SetParent(table.transform, true);
+
+            obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
+            obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "2";
+            obj2.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
+            obj2.transform.Find("Amount").GetComponent<TMP_Text>().text = "5";
+
+            selectedItem = 4;
         }
     }
 }
