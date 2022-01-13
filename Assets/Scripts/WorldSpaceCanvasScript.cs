@@ -22,6 +22,7 @@ public class WorldSpaceCanvasScript : MonoBehaviour
         smeltCopperButton.gameObject.transform.position = furnace.transform.position + offsets[0];
         //row.transform.position = smeltIronButton.gameObject.transform.position;
         axeIcon.gameObject.transform.position = tree.transform.position + offsets[2];
+        row.transform.position = new Vector2(row.transform.position.x, 2.3f);
 
         switch (stage)
         {
@@ -66,11 +67,6 @@ public class WorldSpaceCanvasScript : MonoBehaviour
         inv.RemoveMaterial("CopperOreAmount", 1);
         PlayerPrefs.SetInt(output, i + 1);
         smeltCopperButton.gameObject.SetActive(true);
-    }
-    public void MoveBar()
-    {
-        stage = 0;
-        row.transform.position = offsets[3];
     }
     public void Next()
     {
