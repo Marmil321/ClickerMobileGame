@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FirstItem : MonoBehaviour
 {
     [SerializeField] GameObject newItem;
     [SerializeField] GameObject itemAnim;
+
+    [SerializeField] TMP_Text tmpro;
 
     public Animator anim;
 
@@ -16,11 +19,12 @@ public class FirstItem : MonoBehaviour
     {
         anim = transform.Find("ItemAnimation").GetComponent<Animator>();
     }
-    public void NewItem(int index, string item)
+    public void NewItem(int index, string item, string text)
     {
         if(PlayerPrefs.GetInt("has" + item) == 0)
         {
             itemAnim.transform.Find("item").GetComponent<Image>().sprite = itemSprites[index];
+            tmpro.text = text;
             itemAnim.gameObject.SetActive(true);
             newItem.gameObject.SetActive(true);
             PlayerPrefs.SetInt("has" + item, 1);

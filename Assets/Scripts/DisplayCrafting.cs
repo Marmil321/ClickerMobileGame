@@ -91,7 +91,7 @@ public class DisplayCrafting : MonoBehaviour
                     inv.RemoveMaterial("StickAmount", 3);
                     inv.RemoveMaterial("CopperAmount", 2);
 
-                    FindObjectOfType<FirstItem>().NewItem(1, "Copperaxe");
+                    FindObjectOfType<FirstItem>().NewItem(1, "Copperaxe", "Copper Axe");
                 }
                 CraftCopperAxe();
                 break;
@@ -113,7 +113,7 @@ public class DisplayCrafting : MonoBehaviour
                     inv.RemoveMaterial("StickAmount", 2);
                     inv.RemoveMaterial("CopperAmount", 5);
 
-                    FindObjectOfType<FirstItem>().NewItem(0, "CopperPickaxe");
+                    FindObjectOfType<FirstItem>().NewItem(0, "CopperPickaxe", "Copper Pickaxe");
                 }          
                 CraftCopperPickaxe();
                 break;
