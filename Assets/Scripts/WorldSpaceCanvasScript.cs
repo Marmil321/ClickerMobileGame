@@ -67,6 +67,11 @@ public class WorldSpaceCanvasScript : MonoBehaviour
         PlayerPrefs.SetInt(output, i + 1);
         smeltCopperButton.gameObject.SetActive(true);
     }
+    public void MoveBar()
+    {
+        stage = 0;
+        row.transform.position = offsets[3];
+    }
     public void Next()
     {
         if(stage < 2)

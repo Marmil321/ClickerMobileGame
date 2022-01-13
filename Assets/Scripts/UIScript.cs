@@ -31,6 +31,7 @@ public class UIScript : MonoBehaviour
         if (i == 0)
         {
             i++;
+            FindObjectOfType<WorldSpaceCanvasScript>().MoveBar();
         }
         else
         {

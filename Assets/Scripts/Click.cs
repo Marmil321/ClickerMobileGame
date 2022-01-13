@@ -24,7 +24,7 @@ public class Click : MonoBehaviour
 
         upgrade = FindObjectOfType<UpgradeManger>();
     }
-    void OnMouseUp()
+    void OnMouseDown()
     {
         click = true;
     }
