@@ -69,10 +69,13 @@ public class DisplayCrafting : MonoBehaviour
     }
     public void Craft()
     {
+
+        GameObject.Find("wholecrafting").GetComponent<Animator>().Play("HammerHit");
+
         switch (selectedItem)
         {
             case 0:
-                print("ERRoR");
+                print("ERROR");             
                 break;
             case 1:
                 if (inv.wood >= 5)
