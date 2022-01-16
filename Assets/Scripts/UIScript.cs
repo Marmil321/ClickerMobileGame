@@ -22,7 +22,7 @@ public class UIScript : MonoBehaviour
 
     private void Start()
     {
-        changeBG.value = PlayerPrefs.GetInt("bgValue");
+        //changeBG.value = PlayerPrefs.GetInt("bgValue");
     }
     public void GoHome()
     {
