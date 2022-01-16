@@ -21,7 +21,7 @@ public class DisplayCrafting : MonoBehaviour
     //0 - Placeholder
     //1 - Wood
     //2 - Copper
-    //3 - 
+    //3 - Coal
     //4 - 
     //5 - 
     //6 -
@@ -133,10 +133,15 @@ public class DisplayCrafting : MonoBehaviour
         if (inv.wood >= 3)
         {
             GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
+            GameObject obj2 = Instantiate(icons[3], grid[5].transform.position, Quaternion.identity);
+
             obj1.transform.SetParent(table.transform, true);
+            obj2.transform.SetParent(table.transform, true);
             obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f,1.2f,1);
+            obj2.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
             obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
-                 
+            //obj2.transform.Find("Amount").GetComponent<TMP_Text>().text = "";
+
             selectedItem = 1;           
         }      
     }

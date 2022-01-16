@@ -8457,7 +8457,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404642721}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
@@ -14839,6 +14839,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106170176}
   m_CullTransparentMesh: 1
+--- !u!1 &1107645873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1107645874}
+  m_Layer: 5
+  m_Name: result
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1107645874
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107645873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1822660280}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -299, y: 497}
+  m_SizeDelta: {x: 68.6534, y: 78.5051}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1113640029
 GameObject:
   m_ObjectHideFlags: 0
@@ -15798,12 +15834,13 @@ MonoBehaviour:
   - {fileID: 945661896}
   - {fileID: 998007168}
   - {fileID: 409024304}
+  - {fileID: 1107645874}
   table: {fileID: 2122502322}
   icons:
   - {fileID: 6993033799489204203, guid: adb6871bd7637454ea651f3fe4bbffb5, type: 3}
   - {fileID: 2128946614352039962, guid: ac03ce63a4fd658488dacba20b5c1d44, type: 3}
   - {fileID: 2128946614352039962, guid: 50a23eb24787f344d93bedc2d9e7f6bd, type: 3}
-  - {fileID: 6993033799489204203, guid: 289282e3a96350d43952ea262df34d9b, type: 3}
+  - {fileID: 6993033799489204203, guid: c7a04c3beb601314d926f00322cf6529, type: 3}
   - {fileID: 6993033799489204203, guid: e5b093d39251cb146b93abfc0bdf722f, type: 3}
   - {fileID: 6993033799489204203, guid: e5e5bfe206dbd1a4b9789d8e8ad7d099, type: 3}
 --- !u!1 &1271263338
@@ -25700,6 +25737,7 @@ RectTransform:
   - {fileID: 945661896}
   - {fileID: 998007168}
   - {fileID: 409024304}
+  - {fileID: 1107645874}
   m_Father: {fileID: 2083464722}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -20,6 +20,7 @@ public class StateManager : MonoBehaviour
     {
         activeState = GetState();
 
+        //Change Backgorund
         switch (GetState())
         {
             case "tree":
