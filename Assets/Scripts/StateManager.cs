@@ -7,7 +7,6 @@ public class StateManager : MonoBehaviour
 {
     public string activeState;
     private string tree = "tree", stone = "stone", furnace = "furnace";
-    [SerializeField] GameObject[] background;
 
     public UIScript ui;
 
@@ -19,19 +18,6 @@ public class StateManager : MonoBehaviour
     private void Update()
     {
         activeState = GetState();
-
-        //Change Backgorund
-        switch (GetState())
-        {
-            case "tree":
-                background[0].SetActive(true);
-                background[1].SetActive(false);
-                break;
-            case "stone":
-                background[1].SetActive(true);
-                background[0].SetActive(false);
-                break;
-        }
     }
     public string GetState()
     {
