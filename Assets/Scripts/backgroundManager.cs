@@ -7,12 +7,10 @@ public class backgroundManager : MonoBehaviour
     public GameObject[] background;
 
     public StateManager state;
-    Animator anim;
 
     private void Start()
     {
         state = FindObjectOfType<StateManager>();
-        anim = GetComponent<Animator>();
     }
 
     private void Update()
