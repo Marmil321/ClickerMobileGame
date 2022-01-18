@@ -27,9 +27,15 @@ public class FirstItem : MonoBehaviour
             tmpro.text = text;
             itemAnim.gameObject.SetActive(true);
             newItem.gameObject.SetActive(true);
+            StartCoroutine(EnableButton());
             PlayerPrefs.SetInt("has" + item, 1);
         }
         
+    }
+    IEnumerator EnableButton()
+    {
+        yield return new WaitForSeconds(1.5f);
+        newItem.GetComponent<Button>().interactable = true;
     }
     public void closeScreen()
     {
@@ -41,6 +47,7 @@ public class FirstItem : MonoBehaviour
     {
         anim.Play("PickUpItem");
         yield return new WaitForSeconds(1.25f);
+        newItem.GetComponent<Button>().interactable = false;
         itemAnim.gameObject.SetActive(false);
     }
 }

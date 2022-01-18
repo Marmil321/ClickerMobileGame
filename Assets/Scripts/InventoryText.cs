@@ -6,7 +6,7 @@ using TMPro;
 
 public class InventoryText : MonoBehaviour
 {
-    public Text woodText, stoneText, ironText, coalText, stickText;
+    public Text woodText, stoneText, copperText, coalText, stickText;
     public int testint;
     public TextMeshProUGUI currentAmount, autoText;
 
@@ -54,12 +54,12 @@ public class InventoryText : MonoBehaviour
 
         woodText.text = ShortenNumber(inv.wood);
         stoneText.text = ShortenNumber(inv.stone);
-        ironText.text = ShortenNumber(inv.copper);
+        copperText.text = ShortenNumber(inv.copper);
         coalText.text = ShortenNumber(inv.coal);
         stickText.text = ShortenNumber(inv.stick);
 
     }
-    public string ShortenNumber(double value)
+    public string ShortenNumber(int value)
     {
         if(value > 999 && value < 999999)
         {
