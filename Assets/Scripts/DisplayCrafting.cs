@@ -121,6 +121,13 @@ public class DisplayCrafting : MonoBehaviour
 
         }
     }
+    void Display(int icon)
+    {
+        GameObject obj1 = Instantiate(icons[icon], grid[0].transform.position, Quaternion.identity);
+        obj1.transform.SetParent(table.transform, true);
+        obj1.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+
+    }
     public void CraftCoal()
     {
         foreach (Transform child in table)
@@ -130,15 +137,7 @@ public class DisplayCrafting : MonoBehaviour
 
         if (inv.wood >= 3)
         {
-            GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
-            GameObject obj2 = Instantiate(icons[3], grid[5].transform.position, Quaternion.identity);
-
-            obj1.transform.SetParent(table.transform, true);
-            obj2.transform.SetParent(table.transform, true);
-            obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f,1.2f,1);
-            obj2.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
-            obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
-            //obj2.transform.Find("Amount").GetComponent<TMP_Text>().text = "";
+            Display(1);
 
             selectedItem = 1;           
         }      
@@ -152,15 +151,7 @@ public class DisplayCrafting : MonoBehaviour
 
         if (inv.stick >= 3 && inv.copper >= 3)
         {
-            GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
-            GameObject obj2 = Instantiate(icons[2], grid[1].transform.position, Quaternion.identity);
-            obj1.transform.SetParent(table.transform, true);
-            obj2.transform.SetParent(table.transform, true);
-
-            obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
-            obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
-            obj2.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
-            obj2.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
+            Display(3);
 
             selectedItem = 2;
         }
@@ -174,10 +165,7 @@ public class DisplayCrafting : MonoBehaviour
 
         if (inv.wood >= 3)
         {
-            GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
-            obj1.transform.SetParent(table.transform, true);
-            obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
-            obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "3";
+            Display(4);
 
             selectedItem = 3;
         }
@@ -191,15 +179,8 @@ public class DisplayCrafting : MonoBehaviour
 
         if (inv.stick >= 2 && inv.copper >= 5)
         {
-            //GameObject obj1 = Instantiate(icons[1], grid[0].transform.position, Quaternion.identity);
-            //GameObject obj2 = Instantiate(icons[2], grid[1].transform.position, Quaternion.identity);
-            //obj1.transform.SetParent(table.transform, true);
-            //obj2.transform.SetParent(table.transform, true);
 
-            //obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
-            //obj1.transform.Find("Amount").GetComponent<TMP_Text>().text = "2";
-            //obj2.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
-            //obj2.transform.Find("Amount").GetComponent<TMP_Text>().text = "5";
+            Display(2);
 
             selectedItem = 4;
         }
