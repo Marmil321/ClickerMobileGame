@@ -52,13 +52,9 @@ public class Click : MonoBehaviour
                 anim.Play("ClickAnim");
             }
             if (this.gameObject.name == "Tree" && ui.page == 0)
-            {           
+            {
+
                 anim.Play("TreeClick");
-                if (GameObject.Find("AxeIcon"))
-                {
-                    GameObject.Find("AxeIcon").GetComponent<AxeScript>().AxeClick();
-                    amount += upgrade.GetLevel();
-                }
             }
             click = false;
         }

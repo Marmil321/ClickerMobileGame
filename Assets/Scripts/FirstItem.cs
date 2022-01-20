@@ -28,7 +28,7 @@ public class FirstItem : MonoBehaviour
             itemAnim.gameObject.SetActive(true);
             newItem.gameObject.SetActive(true);
             StartCoroutine(EnableButton());
-            PlayerPrefs.SetInt("has" + item, 1);
+            //PlayerPrefs.SetInt("has" + item, 1);
         }
         
     }

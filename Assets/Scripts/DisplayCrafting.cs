@@ -125,7 +125,7 @@ public class DisplayCrafting : MonoBehaviour
     {
         GameObject obj1 = Instantiate(icons[icon], grid[0].transform.position, Quaternion.identity);
         obj1.transform.SetParent(table.transform, true);
-        obj1.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+        obj1.GetComponent<RectTransform>().localScale = new Vector3(1.2f, 1.2f, 1);
 
     }
     public void CraftCoal()

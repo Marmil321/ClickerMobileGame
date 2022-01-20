@@ -11,7 +11,7 @@ public class OpenCloseMenu : MonoBehaviour
     void Start()
     {
         anim = transform.Find(animObj).GetComponent<Animator>();
-        iconAnim = icon.GetComponent<Animator>();
+        //iconAnim = icon.GetComponent<Animator>();
     }
 
    public void Open()
@@ -19,7 +19,7 @@ public class OpenCloseMenu : MonoBehaviour
         anim.Play("MenuDown");
         GetComponent<Canvas>().enabled = true;
 
-        iconAnim.Play("BackpackClick");
+        //iconAnim.Play("BackpackClick");
 
         if(animObj == "wholecrafting")
         {
